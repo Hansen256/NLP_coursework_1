@@ -1,37 +1,41 @@
-# Coursework 1 - Group 1 Hybrid NLP Preprocessing
+# Coursework 1 — Group 1: Hybrid NLP Preprocessing
+
+## Overview
+
+Three preprocessing pipelines (rule-based, statistical, deep learning) applied to:
+
+- **English:** Sentiment140 Twitter Dataset (1.6M tweets)
+- **Swahili:** Swahili News Classification Dataset
+
+Each pipeline is evaluated for topic discovery quality, vocabulary metrics, and meaning preservation.
 
 ## Files
 
-- `notebooks/group1_hybrid_preprocessing.ipynb`: main notebook implementation
-- `requirements.txt`: Python dependencies
-- `data/raw/`: place Kaggle CSV files here
-- `data/processed/`: generated cleaned datasets (6 files)
-- `reports/pipeline_comparison_metrics.csv`: final metrics table
-- `reports/figures/`: generated plots
+- `notebooks/group1_hybrid_preprocessing.ipynb` — main notebook
+- `requirements.txt` — Python dependencies
+- `data/processed/` — 6 cleaned CSVs (`{language}_{pipeline}.csv`)
+- `reports/pipeline_comparison_metrics.csv` — final metrics table
+- `reports/figures/` — generated plots
 
-## Dataset placement
+## Quick Start
 
-Download and place:
+### On Google Colab (recommended)
 
-- Sentiment140 CSV as `data/raw/sentiment140.csv`
-- Swahili tweets CSV as `data/raw/swahili_tweets.csv`
+1. Open the notebook via the **Open in Colab** badge.
+2. Run all cells top-to-bottom — dependencies install automatically.
+3. Upload your `kaggle.json` when prompted (download from **kaggle.com → Account → API → Create New Token**).
 
-If your filenames differ, update the `DATA_PATHS` cell in the notebook.
-
-## Setup
+### Locally
 
 ```bash
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ```
 
-## Run
-
-Open and run:
-
-- `notebooks/group1_hybrid_preprocessing.ipynb`
+Then open `notebooks/group1_hybrid_preprocessing.ipynb` in Jupyter.
 
 ## Notes
 
-- Swahili deep preprocessing uses multilingual transformer tokenization and optional multilingual NER masking fallback.
-- The notebook exports 3 cleaned datasets per language: rule/stat/deep (6 total).
+- Datasets are downloaded automatically via `kagglehub` — no manual placement needed.
+- The Swahili dataset contains **news articles** (not tweets). Cross-language comparisons reflect both language and domain differences.
+- Outputs persist to Google Drive on Colab when available; fall back to local filesystem otherwise.
